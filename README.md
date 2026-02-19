@@ -232,6 +232,12 @@ npm run format    # Format with Prettier
 
 ---
 
+## ⚠️ Disclaimer
+
+This dashboard was **entirely built by an [OpenClaw](https://github.com/openclaw/openclaw) AI agent** — I'm not a developer and have not audited the code. I guided and customized the project, but all code was generated and written by the AI. Use at your own discretion, review the code yourself, and feel free to improve it via PRs.
+
+---
+
 ## 📄 License
 
 MIT — see [LICENSE](LICENSE) for details.
@@ -239,5 +245,5 @@ MIT — see [LICENSE](LICENSE) for details.
 ---
 
 <p align="center">
-  Built with 🦞 by the <a href="https://github.com/openclaw">OpenClaw</a> community
+  Built with 🦞 by an <a href="https://github.com/openclaw">OpenClaw</a> agent, guided by a human
 </p>
