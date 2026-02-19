@@ -31,40 +31,52 @@ That's it — your agent will handle the rest. 🦞
 ## 📸 Screenshots
 
 ### 📊 Overview
-
-System status at a glance — uptime, CPU, memory, disk, today's token usage & cost, active cron jobs, projects, and quick navigation links.
-
+System status at a glance — CPU, memory, disk, uptime, costs, active jobs, and projects.
 ![Overview](docs/screenshots/overview.png)
 
-### ⏰ Cron Jobs
+### 📁 Projects
+All tracked projects with tech stacks, descriptions, and start dates.
+![Projects](docs/screenshots/projects.png)
 
-Active/inactive split view with human-readable schedules. One-time jobs show full date+time. Tracks last run status, next run countdown, and error count.
+### 📋 Activity
+Live activity feed — task runs, cron executions, errors, and system events.
+![Activity](docs/screenshots/activity.png)
 
-![Cron Jobs](docs/screenshots/cron.png)
-
-### 🧠 Memory
-
-Browse long-term memory, daily notes, and guides. Full markdown viewer with tab navigation between memory types.
-
-![Memory](docs/screenshots/memory.png)
+### 📅 Calendar
+Monthly calendar view generated from cron job schedules.
+![Calendar](docs/screenshots/calendar.png)
 
 ### 🤖 Models
-
-View AI model routing at a glance. Cards grouped by role — Primary, Fallback, Sub-Agent, and Embedding — with provider, context window, and pricing info.
-
+AI model routing at a glance — Primary, Fallback, Sub-Agent, and Embedding roles with provider and pricing info.
 ![Models](docs/screenshots/models.png)
 
-### 🧩 Skills
+### ⏰ Cron Jobs
+Active and inactive jobs with schedules, last run status, next run countdown, and error tracking.
+![Cron Jobs](docs/screenshots/cron.png)
 
-Active skills displayed as cards with descriptions and scope. Inactive skills hidden behind a collapsible "Available Skills" dropdown.
+### 📈 Usage
+Token and cost analytics with daily charts (7d / 30d / all time) and per-model breakdown.
+![Usage](docs/screenshots/usage.png)
 
-![Skills](docs/screenshots/skills.png)
+### 🧠 Memory
+Browse long-term memory, daily notes, and guides with full markdown rendering.
+![Memory](docs/screenshots/memory.png)
 
-### ⚙️ Settings
+### 📄 Config Files
+Workspace configuration file browser — AGENTS.md, SOUL.md, TOOLS.md, and more.
+![Config Files](docs/screenshots/config.png)
 
-Dashboard appearance, system info, and notification preferences. Theme switching, sidebar style, and alert configuration.
+### 💰 Expenses
+Monthly cost tracking for subscriptions and API services with category labels.
+![Expenses](docs/screenshots/expenses.png)
 
-![Settings](docs/screenshots/settings.png)
+### 🔑 API Keys
+Connected API keys with masked credentials, provider types, plans, and rate limits.
+![API Keys](docs/screenshots/apis.png)
+
+### 🔗 Accounts
+Connected service accounts — Telegram, Gmail, Google Drive, Twitter/X, Cloudflare, and more.
+![Accounts](docs/screenshots/accounts.png)
 
 ---
 
