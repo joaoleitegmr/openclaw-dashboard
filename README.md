@@ -1,74 +1,94 @@
-# OpenClaw Dashboard
+<p align="center">
+  <img src="public/openclaw-logo.svg" alt="OpenClaw Dashboard" width="80" />
+</p>
 
-A modern, self-hosted web dashboard for [OpenClaw](https://github.com/openclaw/openclaw) AI agents. Monitor your agent's models, cron jobs, skills, usage, memory, and more — all from a clean UI.
+<h1 align="center">OpenClaw Dashboard</h1>
 
-Built with **Next.js 16**, **Tailwind CSS v4**, **shadcn/ui**, and **Recharts**.
+<p align="center">
+  A modern, self-hosted web dashboard for <a href="https://github.com/openclaw/openclaw">OpenClaw</a> AI agents.<br/>
+  Monitor models, cron jobs, skills, usage, memory, and more — all from a clean UI.
+</p>
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
-![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss)
-![License](https://img.shields.io/badge/License-MIT-green)
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-black?logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss" alt="Tailwind" />
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License" />
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs Welcome" />
+</p>
 
 ---
 
-## Features
+## ⚡ Quick Start
+
+Already running OpenClaw? Paste this prompt into your agent:
+
+> Set up the OpenClaw Dashboard: clone https://github.com/joaoleitegmr/openclaw-dashboard, install dependencies with npm install, configure the .env file pointing to my OpenClaw instance, and start it with npm run dev
+
+That's it — your agent will handle the rest. 🦞
+
+---
+
+## 📸 Screenshots
 
 ### 📊 Overview
-System status at a glance — uptime, active model, today's token usage & cost, active cron jobs, skills count, upcoming events, and quick links.
 
-### 🤖 Models
-View and manage AI model routing. Cards grouped by role (Primary, Fallback, Sub-Agent, Embedding) with provider details and context window info.
+System status at a glance — uptime, CPU, memory, disk, today's token usage & cost, active cron jobs, projects, and quick navigation links.
+
+![Overview](docs/screenshots/overview.png)
 
 ### ⏰ Cron Jobs
-Active/inactive split view with human-readable schedules ("9:00 AM · Daily"). One-time jobs show full date+time. Collapsible inactive section.
 
-### 🧩 Skills
-Active skills displayed as cards. Inactive skills hidden behind a collapsible "Available Skills" dropdown.
+Active/inactive split view with human-readable schedules. One-time jobs show full date+time. Tracks last run status, next run countdown, and error count.
 
-### 📈 Usage
-Interactive Recharts bar chart with 7d / 30d / All time period selector. Stats cards, model-by-model breakdown, and daily usage table.
-
-### 📅 Calendar
-Monthly calendar view generated from cron jobs. Click any day to see a timeline modal. Color coding: green = one-time, blue = recurring. "All Events" section for non-daily jobs.
+![Cron Jobs](docs/screenshots/cron.png)
 
 ### 🧠 Memory
-Browse long-term memory (MEMORY.md), daily notes (memory/*.md), and guides. Full file viewer.
 
-### 📝 Logs
-Filtered log viewer with level badges (info/warn/error) and auto-refresh.
+Browse long-term memory, daily notes, and guides. Full markdown viewer with tab navigation between memory types.
 
-### ⚙️ Config Files
-Clickable file list → click to view contents → back button. Clean file browser for workspace config.
+![Memory](docs/screenshots/memory.png)
 
-### 🔧 Setup
-Compact overview of your entire setup: Agent info, Infrastructure, Network, Models, Security, and Smart Optimizations (cost savings, reliability features).
+### 🤖 Models
 
-### 💰 Expenses
-Cost tracking with category breakdown and trends.
+View AI model routing at a glance. Cards grouped by role — Primary, Fallback, Sub-Agent, and Embedding — with provider, context window, and pricing info.
 
-### 📰 Digests
-View configured news briefing cron jobs and their schedules.
+![Models](docs/screenshots/models.png)
 
-### 🔑 API Keys
-List of configured API integrations with status indicators.
+### 🧩 Skills
 
-### 🏗️ Projects
-Project cards showing workspace projects with stack info and file listings.
+Active skills displayed as cards with descriptions and scope. Inactive skills hidden behind a collapsible "Available Skills" dropdown.
 
-### 🔍 Search
-Full workspace search powered by OpenClaw's search API.
-
-### 📡 Activity Feed
-Timeline view combining cron job runs and system events.
-
-### 👤 Accounts
-Connected platform accounts overview.
+![Skills](docs/screenshots/skills.png)
 
 ### ⚙️ Settings
-Dashboard and system configuration.
+
+Dashboard appearance, system info, and notification preferences. Theme switching, sidebar style, and alert configuration.
+
+![Settings](docs/screenshots/settings.png)
 
 ---
 
-## Architecture
+## ✨ All Features
+
+| Feature | Description |
+|---------|-------------|
+| **Overview** | System stats, costs, projects, upcoming jobs |
+| **Models** | AI model routing with role-based cards |
+| **Cron Jobs** | Active/inactive views with schedules & status |
+| **Skills** | Installed skills with activation status |
+| **Usage** | Token & cost charts (7d / 30d / all time) |
+| **Calendar** | Monthly view generated from cron schedules |
+| **Memory** | Long-term memory, daily notes, guides viewer |
+| **Logs** | Filtered log viewer with level badges & auto-refresh |
+| **Config** | Workspace config file browser |
+| **Setup** | Agent info, infrastructure, models, security overview |
+| **Expenses** | Cost tracking with category breakdown |
+| **Search** | Full workspace search (Cmd+K) |
+| **Settings** | Theme, appearance, and notification config |
+
+---
+
+## 🏗️ Architecture
 
 ```
 Browser → Cloudflare Tunnel (optional) → Next.js Dashboard (:3100)
@@ -80,31 +100,33 @@ The dashboard proxies all API calls through Next.js API routes to the OpenClaw C
 
 ---
 
-## Installation
+## 📦 Installation
 
 ### Prerequisites
-- **Node.js** 22+ (recommended via nvm)
+
+- **Node.js** 22+ (see `.nvmrc`)
 - **OpenClaw** running with Control UI enabled on port 3001
 - **npm** or **bun**
 
 ### Setup
 
 ```bash
-# Clone the repo
-git clone https://github.com/openclaw/openclaw-dashboard.git
+# Clone
+git clone https://github.com/joaoleitegmr/openclaw-dashboard.git
 cd openclaw-dashboard
 
-# Install dependencies
+# Install
 npm install
 
-# Configure (optional)
+# Configure
 cp env.example.txt .env
-# Edit .env to set OPENCLAW_API_URL if not localhost:3001
+# Edit .env — at minimum, ensure OPENCLAW_API_URL points to your instance
 
-# Build
+# Development
+npm run dev
+
+# Production
 npm run build
-
-# Start (production)
 npm start -- -p 3100
 ```
 
@@ -115,12 +137,14 @@ npm start -- -p 3100
 | `OPENCLAW_API_URL` | `http://localhost:3001` | OpenClaw Control UI API URL |
 | `PORT` | `3100` | Dashboard port |
 
-### Run as systemd service (recommended)
+Authentication is handled by [Clerk](https://clerk.com) — keyless mode works out of the box for development. See `env.example.txt` for all available options.
+
+### Run as a systemd service (recommended for production)
 
 ```bash
 sudo tee /etc/systemd/system/openclaw-dashboard.service > /dev/null <<EOF
 [Unit]
-Description=OpenClaw Dashboard (Next.js)
+Description=OpenClaw Dashboard
 After=network.target
 
 [Service]
@@ -147,11 +171,11 @@ For secure remote access without exposing ports:
 cloudflared tunnel --url http://localhost:3100
 ```
 
-Add Cloudflare Access for authentication (Google login, email allowlist, etc.).
+Pair with [Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/) for authentication (Google login, email allowlist, etc.).
 
 ---
 
-## OpenClaw Configuration
+## ⚙️ OpenClaw Configuration
 
 Make sure your OpenClaw config has the Control UI enabled:
 
@@ -161,45 +185,59 @@ controlUI:
   port: 3001
 ```
 
-The dashboard reads all data from these API endpoints:
-- `/api/status` — System status & uptime
-- `/api/models` — Model configuration
-- `/api/cron` — Cron job listing
-- `/api/skills` — Installed skills
-- `/api/usage` — Token usage & costs
-- `/api/config` — Configuration files
-- `/api/logs` — Recent logs
-- `/api/search` — Workspace search
+The dashboard reads from these API endpoints:
+
+| Endpoint | Data |
+|----------|------|
+| `/api/status` | System status & uptime |
+| `/api/models` | Model configuration |
+| `/api/cron` | Cron job listing |
+| `/api/skills` | Installed skills |
+| `/api/usage` | Token usage & costs |
+| `/api/config` | Configuration files |
+| `/api/logs` | Recent logs |
+| `/api/search` | Workspace search |
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Framework:** Next.js 16 (App Router, Turbopack)
-- **Styling:** Tailwind CSS v4 + shadcn/ui components
+- **Styling:** Tailwind CSS v4 + [shadcn/ui](https://ui.shadcn.com)
 - **Charts:** Recharts
 - **Icons:** Tabler Icons + Lucide React
 - **Search:** KBar (Cmd+K command palette)
+- **Auth:** Clerk (keyless mode for development)
 - **Themes:** Multiple themes with dark mode support
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
+Contributions are welcome! Whether it's a bug fix, new feature, or documentation improvement — we'd love your help.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. **Fork** the repository
+2. **Create** your feature branch: `git checkout -b feature/amazing-feature`
+3. **Commit** your changes: `git commit -m 'Add amazing feature'`
+4. **Push** to the branch: `git push origin feature/amazing-feature`
+5. **Open** a Pull Request
+
+### Development
+
+```bash
+npm run dev       # Start dev server with Turbopack
+npm run lint      # Run ESLint
+npm run format    # Format with Prettier
+```
 
 ---
 
-## License
+## 📄 License
 
 MIT — see [LICENSE](LICENSE) for details.
 
 ---
 
-Built with 🦞 by the [OpenClaw](https://github.com/openclaw) community
+<p align="center">
+  Built with 🦞 by the <a href="https://github.com/openclaw">OpenClaw</a> community
+</p>
