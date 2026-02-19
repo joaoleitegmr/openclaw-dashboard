@@ -175,15 +175,33 @@ EOF
 sudo systemctl enable --now openclaw-dashboard
 ```
 
-### Optional: Cloudflare Tunnel
+### 🔐 Authentication (Important!)
 
-For secure remote access without exposing ports:
+> **⚠️ This dashboard has no built-in authentication.** If you expose it to the internet without protection, anyone can access your agent's data — memory, config, API keys, everything. **Do not leave it open.**
+
+The recommended approach is **[Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/)** (free tier available):
+
+1. Set up a [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) to your dashboard
+2. Add an **Access Application** with an identity provider (Google, GitHub, email OTP, etc.)
+3. Restrict access to your email only
 
 ```bash
+# Install cloudflared
+curl -fsSL https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+chmod +x /usr/local/bin/cloudflared
+
+# Create tunnel
+cloudflared tunnel login
+cloudflared tunnel create openclaw-dashboard
+cloudflared tunnel route dns openclaw-dashboard dashboard.yourdomain.com
+
+# Run (or set up as systemd service)
 cloudflared tunnel --url http://localhost:3100
 ```
 
-Pair with [Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/) for authentication (Google login, email allowlist, etc.).
+Then in **Cloudflare Zero Trust** → **Access** → **Applications**, create a self-hosted app for your dashboard domain and add a policy allowing only your email.
+
+Other options: Tailscale, WireGuard, nginx with basic auth, or simply bind to `localhost` and use SSH tunneling.
 
 ---
 
